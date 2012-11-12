@@ -17,7 +17,7 @@ public class SpoutBlockTutorial extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		// from Spout tutorial
-		getLogger().log(Level.INFO, "[Spout Test Plugin] Enabled!");
+		getLogger().log(Level.INFO, "[Spout Block Test Plugin] Enabled!");
 
 		// save the configuration file
 		saveDefaultConfig();
