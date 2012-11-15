@@ -1,0 +1,33 @@
+# This is a sample plugin.yml
+# For more infomration refer to http://wiki.bukkit.org/Plugin_YAML
+main: edu.unca.rbruce.SpoutBlockTutorial.SpoutBlockTutorial
+name: SpoutBlockTutorial
+version: 0.0.1-SNAPSHOT
+author: SampleAuthor
+description: This is a sample plugin for Spout and Bukkit
+commands:
+  message:
+    description: set the greeting message
+    usage: /<command> greeting message
+    permission: SpoutBlockTutorial.message
+  inventoryBlock:
+    description: create block in inventory
+    usage: /<command>
+    permission: SpoutBlockTutorial.inventoryBlock
+  worldBlock:
+    description: create block in world
+    usage: /<command>
+    permission: SpoutBlockTutorial.worldBlock
+permissions:
+  SpoutBlockTutorial.*:
+    description: gives all permissions of the plugin commands
+    default: true
+    children:
+      SpoutBlockTutorial.message:
+        default: true
+      SpoutBlockTutorial.inventoryBlock:
+        default: true
+      SpoutBlockTutorial.worldBlock:
+        default: true
+
+        
