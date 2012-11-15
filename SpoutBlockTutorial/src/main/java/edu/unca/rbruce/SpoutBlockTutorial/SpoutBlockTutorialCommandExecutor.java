@@ -1,5 +1,7 @@
 package edu.unca.rbruce.SpoutBlockTutorial;
 
+import java.awt.Event;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -22,7 +24,8 @@ import org.getspout.spoutapi.material.CustomBlock;
 import org.getspout.spoutapi.entity.*;
 import org.bukkit.entity.Player;
 import com.google.common.base.Joiner;
-
+import org.getspout.spoutapi.event.screen.*;
+import org.bukkit.event.Event.*;
 /*
  * This is a sample CommandExectuor
  */
@@ -89,15 +92,10 @@ public class SpoutBlockTutorialCommandExecutor implements CommandExecutor {
 				popup.attachWidget(plugin, button); // Necessary because the player needs a mouse to interact with a button
 							
 				popup.attachWidgets(plugin,label1, button); // Attach the widget to the popup
-				Player player = (Player) sender;
+		    	Player player = (Player) sender;
 				SpoutCraftPlayer.getPlayer(player).getMainScreen().attachPopupScreen(popup); // Show the player the popup				
 				return true;
-		
-		} else if (command.getName().equalsIgnoreCase("nomessage")) {
-				Player player = (Player) sender;
-				SpoutCraftPlayer.getPlayer(player).getMainScreen().closePopup();
-				return true;
-		
+				
 		} else {
 			return false;
 		}

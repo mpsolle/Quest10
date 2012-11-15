@@ -2,11 +2,17 @@ package edu.unca.rbruce.SpoutBlockTutorial;
 
 import java.text.MessageFormat;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.plugin.PluginManager;
+import org.getspout.spout.player.SpoutCraftPlayer;
+import org.getspout.spoutapi.event.screen.ButtonClickEvent;
 
 /*
  * This is a sample event listener
@@ -20,7 +26,7 @@ public class SpoutBlockTutorialListener implements Listener {
     public SpoutBlockTutorialListener(SpoutBlockTutorial plugin) {
         // Register the listener
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
-        
+   
         this.plugin = plugin;
     }
 
@@ -37,6 +43,17 @@ public class SpoutBlockTutorialListener implements Listener {
      * the entity you interact with, if it is a Creature it will give you the
      * creature Id.
      */
+   
+    
+    
+    @EventHandler
+    public void onButtonClick(ButtonClickEvent event) {
+    	Player player = event.getPlayer();
+    	SpoutCraftPlayer.getPlayer(player).getMainScreen().closePopup();
+    	event.getPlayer().getMainScreen().closePopup();
+    }
+    
+    
     @EventHandler
     public void onPlayerInteract(PlayerInteractEntityEvent event) {
         final EntityType entityType = event.getRightClicked().getType();
